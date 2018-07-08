@@ -1,0 +1,142 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employee)">
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+          <h3 class="panel-title">Create Employee List</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
+          <label for="name" class="control-label">Full Name</label>
+          <input id="name" required name="name" type="text" [(ngModel)]="employee.name" class="form-control" #name='ngModel'>
+          <span class="help-block" *ngIf="name.invalid && name.touched">
+            Full name is required
+          </span>
+        </div>
+        <!-- <div>touched:{{fullNameControl.touched}}</div> -->
+        <!-- <table border="1" style="border-collapse:collapse;font-family:Arial, Helvetica, sans-serif; table-layout:fixed">
+             <tr style="background-color:rgb(170, 120, 12);font-weight:bold">
+                <td colspan="3" style="padding:3px;white-space:nowrap;width:100%">
+                    <h4>Full Name Field</h4>
+                </td>
+             </tr>
+             <tr style="background-color:rgb(212, 149, 13);font-weight:bold">
+                <td  style="padding:10px;white-space:nowrap;width:33%">
+                   <div>touched:{{fullNameControl.touched}}</div>
+                   <div>untouched:{{fullNameControl.untouched}}</div>
+                </td>
+                <td  style="padding:10px;white-space:nowrap;width:33%">
+                  <div>pristine:{{fullNameControl.pristine}}</div>
+                  <div>dirty:{{fullNameControl.dirty}}</div>
+                </td>
+                <td  style="padding:10px;white-space:nowrap;width:33%">
+                  <div>valid:{{fullNameControl.valid}}</div>
+                  <div>invalid:{{fullNameControl.invalid}}</div>
+                </td>
+             </tr>
+        </table>
+        <table border="1" style="border-collapse:collapse;font-family:Arial, Helvetica, sans-serif; table-layout:fixed">
+          <tr style="background-color:rgb(170, 120, 12);font-weight:bold">
+             <td colspan="3" style="padding:3px;white-space:nowrap;width:100%">
+                 <h4>Employee Form Field</h4>
+             </td>
+          </tr>
+          <tr style="background-color:rgb(212, 149, 13);font-weight:bold">
+             <td  style="padding:10px;white-space:nowrap;width:33%">
+                <div>touched:{{employeeForm.touched}}</div>
+                <div>untouched:{{employeeForm.untouched}}</div>
+             </td>
+             <td  style="padding:10px;white-space:nowrap;width:33%">
+               <div>pristine:{{employeeForm.pristine}}</div>
+               <div>dirty:{{employeeForm.dirty}}</div>
+             </td>
+             <td  style="padding:10px;white-space:nowrap;width:33%">
+               <div>valid:{{employeeForm.valid}}</div>
+               <div>invalid:{{employeeForm.invalid}}</div>
+             </td>
+          </tr>
+     </table> -->
+        <div class="form-group" [class.has-error]="email.invalid && email.touched">
+          <label for="email" class="control-label">Email</label>
+          <input id="email"  required [email]="employee.email!==''" name="email" type="text" #email="ngModel" [(ngModel)]="employee.email" class="form-control">
+          <span class="help-block" *ngIf="email.errors?.required && email.touched">
+            Email is required
+          </span>
+          <span class="help-block" *ngIf="email.errors?.email && email.touched">
+            Email is invalid
+          </span>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">PhoneNumber</label>
+            <input id="phoneNumber" name="phoneNumber" type="text" [(ngModel)]="employee.phoneNumber" class="form-control">
+        </div>
+        <div class="form-group">
+              <label>Contact Preference</label>
+              <div class="form-control">
+                <label class="radio-inline">
+                  <input type="radio" value="email" name="contactPreference" [(ngModel)]="employee.contactPreference">
+                  Email
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="phone" name="contactPreference" [(ngModel)]="employee.contactPreference">
+                    Phone
+                </label>
+              </div>
+            </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="form-control">
+            <label class="radio-inline">
+              <input type="radio" value="male" name="gender" [(ngModel)]="employee.gender">
+              Male
+            </label>
+            <label class="radio-inline">
+                <input type="radio" value="female" name="gender" [(ngModel)]="employee.gender">
+                Female
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+            <div class="form-control">
+              <label class="checkbox-inline">
+                <input type="checkbox"  name="isActive" [(ngModel)]="employee.isActive">
+                Is Active
+              </label>
+            </div>
+        </div>
+          <div class="form-group">
+                <label for="department">Department</label>
+                  <select id="department" type="checkbox"  name="department" [(ngModel)]="employee.department" class="form-control">
+                      <option *ngFor="let dept of departments" [value]="dept.id">
+                            {{dept.name}}
+                      </option>
+                  </select>
+          </div>
+
+          <div class="form-group">
+              <label for="dateofBirth">Date Of Birth</label>
+              <input id="dateofBirth" name="dateofBirth"   [(ngModel)]="employee.dateofBirth" type="date"  class="form-control">
+          </div>
+          <div class="form-group">
+              <label for="photoPath">photoPath</label>
+              <input id="photoPath" name="photoPath" type="text" [(ngModel)]="employee.photoPath" class="form-control">
+          </div>
+          <div class="form-group">
+            <button type="button" (click)="togglePhotoPreview()" class="btn btn-primary">
+              {{photoPreview? "Hide":"Show"}} Preview
+            </button>
+          </div>
+          <div class="form-group">
+            <img [src]="employee.photoPath" height="200" width="200" *ngIf="photoPreview"/>
+          </div>
+      </div>
+      <!-- </div> -->
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Save</button>
+      </div>
+  </div>
+</form>
+
+Angular Generated Form Module:{{employeeForm.value | json}}
+<br>
+<br>
+Our Employee Model:{{employee | json}}

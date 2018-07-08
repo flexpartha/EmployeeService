@@ -1,0 +1,7 @@
+ <h1 *ngIf="empdata">{{empdata.name+" "+empdata.gender}}</h1>
+ 
+<div  *ngFor="let employee of employeeData">
+      <div (click)=onClick(employee.id)>
+        <app-display-employee [employee]="employee" (notify)="handleNotify($event)"></app-display-employee>
+      </div>
+</div>
