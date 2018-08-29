@@ -12,6 +12,7 @@ export class ListEmployeesComponent implements OnInit {
 
   employeeData:Iemployee[];
   empdata:Iemployee;
+  searchTerm:string;
   constructor(private _employeeService:EmployeesService,private _router:Router) { }
 
   ngOnInit() {
@@ -19,6 +20,15 @@ export class ListEmployeesComponent implements OnInit {
     .subscribe((EData)=>this.employeeData=EData)
   }
   
+  changeFirstname()
+  {
+    this.employeeData[0].name="JORDON";
+    //PURE PIPES
+    // let newEmployeeArray:Iemployee[]=Object.assign([],this.employeeData);
+    // newEmployeeArray[0].name="JORDON";
+    // this.employeeData=newEmployeeArray;
+  }
+
   handleNotify(eventData:Iemployee){
     this.empdata=eventData;
   }

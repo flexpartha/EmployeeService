@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm,ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { Idepartments } from '../employee/idepartments';
 import { Iemployee } from '../employee/iemployee';
 

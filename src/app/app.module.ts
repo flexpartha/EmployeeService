@@ -12,6 +12,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
 import { DisplayEmployeeComponent } from './employees/display-employee.component';
 import { CreateEmployeeCanDeactivateGuardService } from './employees/create-employee-can-deactivate-guard.service';
 import { EmployeeDetailsComponent } from './employees/employee-details.component';
+import { EmployeefilterPipe } from './employee/employeefilter.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { EmployeeDetailsComponent } from './employees/employee-details.component
     ListEmployeesComponent,
     CreateEmployeeComponent,
     DisplayEmployeeComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmployeefilterPipe
   ],
   imports: [
     BrowserModule,

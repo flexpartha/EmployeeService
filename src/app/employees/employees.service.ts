@@ -14,6 +14,7 @@ export class EmployeesService {
 
   getAllEmployees():Observable<Iemployee[]>{
     return this._http.get(this.employeesUrl)
+    //.map(response=>response.json())
     .map((response:Response)=><Iemployee[]>response.json())
     .catch(this.handleError);
     

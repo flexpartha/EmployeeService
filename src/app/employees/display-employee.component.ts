@@ -11,7 +11,7 @@ export class DisplayEmployeeComponent implements OnInit {
 
   @Input() employee:Iemployee;
   //@Output() notify:EventEmitter<string>=new EventEmitter<string>();
-  //if we pass double value in one h1 property
+  //if we pass array of value in one h1 property
   @Output() notify:EventEmitter<Iemployee>=new EventEmitter<Iemployee>();
   constructor() { }
 
