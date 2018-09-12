@@ -6,54 +6,54 @@
     <div class="col-xs-10">
       <div class="row">
         <div class="col-xs-4">
-          <img [src]="employee.photoPath" class="imgClass">
+          <img [src]="employee.photoPath" class="imgClass img-responsive">
         </div>
         <div class="col-xs-8">
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-9">
               Gender
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-3">
               :{{employee.gender}}
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-9">
               ContactPreference
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-3">
               :{{employee.contactPreference}}
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-9">
               Email
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-3">
               :{{employee.email}}
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-9">
               PhoneNumber
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-3">
               :{{employee.phoneNumber}}
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-9">
               DateOfBirth
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-3">
               :{{employee.dateofBirth | date}}
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-9">
               Department
             </div>
-            <div class="col-xs-6" [ngSwitch]="employee.department">
+            <div class="col-xs-3" [ngSwitch]="employee.department">
               :
               <span *ngSwitchCase="1">Help Desk</span>
               <span *ngSwitchCase="2">HR</span>
@@ -63,10 +63,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-9">
               IsActive
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-3">
               :{{employee.isActive}}
             </div>
           </div>
@@ -75,7 +75,21 @@
     </div>
   </div>
   <div class="panel-footer">
-      <a class="btn btn-primary" routerLink="/list">Back To List</a>
-      <button class="btn btn-primary pull-right" (click)="viewNextEmployee()">View Next Employee</button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3" style="margin-bottom: 4px;">
+          <a class="btn btn-lg btn-block btn-primary" routerLink="/list">Back To List</a>
+        </div>
+        <div class="col-lg-3" style="margin-bottom: 4px;">
+          <a class="btn btn-lg btn-block btn-primary" routerLink="/list">Back To List2</a>
+          </div>
+          <div class="col-lg-3" style="margin-bottom: 4px;">
+          <a class="btn btn-lg btn-block btn-primary" routerLink="/list">Back To List3</a>
+        </div>
+        <div class="col-lg-3" style="margin-bottom: 4px;">
+          <button class="btn btn-lg btn-block  btn-primary " (click)="viewNextEmployee()">View Next Employee</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

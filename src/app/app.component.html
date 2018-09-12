@@ -1,18 +1,35 @@
 <div class="container">
-    <h1>{{headerTxt}}</h1>
-      <nav class="navbar navbar-default">
-         <ul class="nav navbar-nav">
-           <li><a [routerLink]="['/list']">LIST</a></li>
-           <li><a [routerLink]="['/create']">CREATE</a></li>
-         </ul>
-       </nav>
-    <router-outlet></router-outlet>
- </div>
- <div class="container">
-   <div class="well text-center bg-primary">
-     <footer>
+  <h1>{{headerTxt}}</h1>
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand">Employee Service</a>
+    </div>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a [routerLink]="['/list']">LIST</a>
+        </li>
+        <li>
+          <a [routerLink]="['/create']">CREATE</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+<div class="container">
+  <div class="well text-center bg-primary">
+    <footer>
       <div>Acme Web Solutions</div>
-      <div>Project By <a href="#">Traversy Media</a></div>
-     </footer>
-   </div>
- </div>
+      <div>Project By
+        <a href="#">Traversy Media</a>
+      </div>
+    </footer>
+  </div>
+</div>
