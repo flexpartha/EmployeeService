@@ -13,6 +13,8 @@ import { DisplayEmployeeComponent } from './employees/display-employee.component
 import { CreateEmployeeCanDeactivateGuardService } from './employees/create-employee-can-deactivate-guard.service';
 import { EmployeeDetailsComponent } from './employees/employee-details.component';
 import { EmployeefilterPipe } from './employee/employeefilter.pipe';
+import { EmployeeBusinessdetail1Component } from './employee-businessdetail1/employee-businessdetail1.component';
+import { EmployeeBusinessdetail2Component } from './employee-businessdetail2/employee-businessdetail2.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { EmployeefilterPipe } from './employee/employeefilter.pipe';
     CreateEmployeeComponent,
     DisplayEmployeeComponent,
     EmployeeDetailsComponent,
-    EmployeefilterPipe
+    EmployeefilterPipe,
+    EmployeeBusinessdetail1Component,
+    EmployeeBusinessdetail2Component
   ],
   imports: [
     BrowserModule,
